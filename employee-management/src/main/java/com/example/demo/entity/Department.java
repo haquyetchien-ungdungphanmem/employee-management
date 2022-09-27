@@ -11,16 +11,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
-
+@SuppressWarnings("serial")
 @Data
 @Entity
-@Table(name = "roles")
-public class Roles {
+@Table(name = "department")
+public class Department {
 	@Id
-	String Id;
-	String roles;
+	String department_id;
+	
+	String departmentname;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "roleId")
-	List<Employee> employeeList;
+	@OneToMany(mappedBy = "department_id")
+	List<Employee> employees;
+	
 }
